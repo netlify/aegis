@@ -1,6 +1,8 @@
 #include <aegis/connection.hpp>
 #include <aegis/context.hpp>
 
+#include <openssl/ssl.h>
+
 namespace aegis {
 
 void retain_traits<SSL>::increment (SSL* ptr) noexcept { SSL_up_ref(ptr); }

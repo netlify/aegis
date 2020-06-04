@@ -3,6 +3,9 @@
 
 #include <apex/core/utility.hpp>
 
+#include <openssl/x509.h>
+#include <openssl/ssl.h>
+
 namespace aegis {
 
 void retain_traits<X509>::increment (X509* ptr) noexcept { X509_up_ref(ptr); }

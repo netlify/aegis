@@ -5,8 +5,7 @@
 #include <aegis/memory.hpp>
 #include <aegis/string.hpp>
 #include <aegis/stack.hpp>
-
-#include <openssl/x509.h>
+#include <aegis/types.hpp>
 
 namespace aegis {
 

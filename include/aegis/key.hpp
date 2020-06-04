@@ -2,7 +2,7 @@
 #define AEGIS_KEY_HPP
 
 #include <aegis/memory.hpp>
-#include <openssl/ssl.h>
+#include <aegis/types.hpp>
 
 namespace aegis::io { struct stream; } /* namespace aegis::io */
 

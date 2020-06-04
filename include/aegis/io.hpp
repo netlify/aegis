@@ -2,10 +2,10 @@
 #define AEGIS_IO_HPP
 
 #include <aegis/memory.hpp>
+#include <aegis/types.hpp>
 #include <aegis/key.hpp>
 
 #include <apex/core/span.hpp>
-#include <openssl/ssl.h>
 
 #include <string_view>
 #include <string>
