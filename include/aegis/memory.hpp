@@ -10,12 +10,12 @@ namespace aegis {
 
 template <class> struct default_delete;
 
-template <apex::complete T>
+template <apex::complete_type T>
 struct default_delete<T> {
   void operator () (T* ptr) const noexcept { delete ptr; }
 };
 
-template <apex::incomplete T>
+template <apex::incomplete_type T>
 struct default_delete<T> {
   void operator () (T*) const noexcept = delete;
 };
