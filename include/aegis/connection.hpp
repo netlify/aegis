@@ -19,6 +19,8 @@ struct connection : retain_handle<SSL> {
   using retain_handle<SSL>::retain_handle;
   using retain_handle<SSL>::operator bool;
   using retain_handle<SSL>::get;
+
+  std::string host() const;
 };
 
 } /* namespace aegis */

@@ -43,6 +43,7 @@
     sk_##TYPE##_pop_free(ptr, stack_traits<TYPE>::free_function);               \
   }                                                                             \
   template struct stack_traits<TYPE>
+
 namespace aegis {
 
 AEGIS_STACK_IMPLEMENTATION(GENERAL_NAME);
