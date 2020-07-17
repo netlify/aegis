@@ -35,6 +35,7 @@ struct certificate : private retain_handle<X509> {
 
   using handle_type::handle_type;
   using handle_type::operator bool;
+  using handle_type::release;
   using handle_type::get;
 };
 

@@ -10,8 +10,8 @@ namespace aegis {
 void retain_traits<SSL_CTX>::increment (SSL_CTX* ptr) noexcept { SSL_CTX_up_ref(ptr); }
 void retain_traits<SSL_CTX>::decrement (SSL_CTX* ptr) noexcept { SSL_CTX_free(ptr); }
 
-unsigned long context::add_extra_chain (x509::certificate const& cert) noexcept {
-  if (SSL_CTX_add_extra_chain_cert(this->get(), cert.get()) < 1) {
+unsigned long context::add_extra_chain (x509::certificate&& cert) noexcept {
+  if (SSL_CTX_add_extra_chain_cert(this->get(), cert.release()) < 1) {
     return ERR_get_error();
   }
   return 0;

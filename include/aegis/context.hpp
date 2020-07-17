@@ -18,7 +18,7 @@ template <> struct retain_traits<SSL_CTX> {
 struct context : private retain_handle<SSL_CTX> {
   // TODO: consider renaming add_extra_chain to just chain
   // TODO: change to std::error_code instead of unsigned long
-  unsigned long add_extra_chain (x509::certificate const&) noexcept;
+  unsigned long add_extra_chain (x509::certificate&&) noexcept;
   unsigned long use (x509::certificate const&) noexcept;
   unsigned long use (private_key const&) noexcept;
 
