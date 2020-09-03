@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
 include(FetchContent)
-FetchContent_Declare(cmake GIT_REPOSITORY https://github.com/netlify/cmake)
+FetchContent_Declare(cmake GIT_REPOSITORY https://github.com/netlify/cmake GIT_TAG main)
 FetchContent_MakeAvailable(cmake)
 set(CMAKE_PROJECT_INCLUDE ${NETLIFY_PROJECT_PRELUDE})
 project(aegis LANGUAGES CXX VERSION 0.1.0)
 
-FetchContent_Declare(apex GIT_REPOSITORY git@github.com:netlify/apex.git)
+FetchContent_Declare(apex GIT_REPOSITORY https://github.com/netlify/apex GIT_TAG main)
 FetchContent_MakeAvailable(apex)
 
 find_package(OpenSSL REQUIRED)
