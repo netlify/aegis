@@ -193,10 +193,10 @@ struct stack : private unique_handle<typename stack_traits<T>::stack_type, stack
   using const_iterator = stack_iterator<apex::add_const_t<value_type>>;
   using iterator = stack_iterator<value_type>;
 
-  using handle_type = unique_handle<stack_type, traits_type>;
+  using resource_type = unique_handle<stack_type, traits_type>;
 
-  using handle_type::handle_type;
-  using handle_type::get;
+  using resource_type::resource_type;
+  using resource_type::get;
 
   stack (stack const&) = delete;
   stack () = delete;

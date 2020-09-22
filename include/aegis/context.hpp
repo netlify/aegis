@@ -22,9 +22,9 @@ struct context : private retain_handle<SSL_CTX> {
   unsigned long use (x509::certificate const&) noexcept;
   unsigned long use (private_key const&) noexcept;
 
-  using handle_type::handle_type;
-  using handle_type::operator bool;
-  using handle_type::get;
+  using resource_type::resource_type;
+  using resource_type::operator bool;
+  using resource_type::get;
 };
 
 } /* namespace aegis */

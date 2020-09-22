@@ -5,6 +5,7 @@
 #include <apex/memory/view.hpp>
 
 #include <apex/mixin/handle.hpp>
+#include <apex/mixin/resource.hpp>
 
 namespace aegis {
 
@@ -31,13 +32,13 @@ template <class T, class D=default_delete<T>>
 using unique_ptr = std::unique_ptr<T, D>;
 
 template <class T, class D=default_delete<T>>
-using unique_handle = apex::mixin::handle<T, unique_ptr<T, D>>;
+using unique_handle = apex::mixin::resource<T, unique_ptr<T, D>>;
 
 template <class T, class R=retain_traits<T>>
-using retain_handle = apex::mixin::handle<T, apex::retain_ptr<T, R>>;
+using retain_handle = apex::mixin::resource<T, apex::retain_ptr<T, R>>;
 
 template <class T>
-using view_handle = apex::mixin::handle<
+using view_handle = apex::mixin::resource<
   apex::remove_pointer_t<T>,
   apex::view_ptr<apex::remove_pointer_t<T>>
 >;

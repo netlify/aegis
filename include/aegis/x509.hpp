@@ -33,10 +33,10 @@ struct certificate : private retain_handle<X509> {
   stack<GENERAL_NAME> subject_alternative_names () const noexcept;
   name subject_name () const noexcept;
 
-  using handle_type::handle_type;
-  using handle_type::operator bool;
-  using handle_type::release;
-  using handle_type::get;
+  using resource_type::resource_type;
+  using resource_type::operator bool;
+  using resource_type::release;
+  using resource_type::get;
 };
 
 struct name : private view_handle<X509_NAME> {
@@ -47,18 +47,18 @@ struct name : private view_handle<X509_NAME> {
   size_type find (extension) const noexcept;
   size_type size () const noexcept;
 
-  using handle_type::handle_type;
-  using handle_type::operator bool;
-  using handle_type::get;
+  using resource_type::resource_type;
+  using resource_type::operator bool;
+  using resource_type::get;
 };
 
 struct entry : private view_handle<X509_NAME_ENTRY> {
 
   string data () const noexcept;
 
-  using handle_type::handle_type;
-  using handle_type::operator bool;
-  using handle_type::get;
+  using resource_type::resource_type;
+  using resource_type::operator bool;
+  using resource_type::get;
 };
 
 } /* namespace aegis::x509 */

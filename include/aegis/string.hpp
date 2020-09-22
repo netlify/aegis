@@ -23,7 +23,7 @@ template <> struct default_delete<ASN1_STRING> {
 struct string : private unique_handle<ASN1_STRING> {
   using size_type = int;
 
-  using handle_type::handle_type;
+  using resource_type::resource_type;
 
 // TODO: needs a 'type' setting
 //  explicit string (apex::span<byte const>) noexcept;
