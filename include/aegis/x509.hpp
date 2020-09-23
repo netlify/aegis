@@ -17,7 +17,7 @@ template <> struct retain_traits<X509> {
 
 } /* namespace aegis */
 
-namespace aegis::io { struct stream; } /* namespace aegis::io */
+namespace aegis::io { struct stream_view; } /* namespace aegis::io */
 
 namespace aegis::x509 {
 
@@ -27,7 +27,7 @@ struct name;
 
 struct certificate : private retain_handle<X509> {
 
-  certificate (io::stream const&) noexcept;
+  certificate (io::stream_view const&) noexcept;
 
   // TODO: use stack<ext::general_name> later
   stack<GENERAL_NAME> subject_alternative_names () const noexcept;
