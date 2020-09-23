@@ -15,7 +15,7 @@ void retain_traits<X509>::decrement (X509* ptr) noexcept { X509_free(ptr); }
 
 namespace aegis::x509 {
 
-certificate::certificate (io::stream const& stream) noexcept :
+certificate::certificate (io::stream_view const& stream) noexcept :
   retain_handle<X509> { PEM_read_bio_X509_AUX(stream.get(), nullptr, nullptr, nullptr) }
 { }
 
