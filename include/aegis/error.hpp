@@ -155,7 +155,7 @@ enum class asn1 {
   streaming_not_supported = 202,
   string_too_long = 151,
   string_too_short = 152,
-  the_asn1_object_identifier_is_not_known_for_this_md 154,
+  the_asn1_object_identifier_is_not_known_for_this_md = 154,
   time_not_ascii_format = 193,
   too_large = 223,
   too_long = 155,
