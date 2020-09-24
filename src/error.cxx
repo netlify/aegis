@@ -86,6 +86,42 @@ struct dsa : category {
   }
 };
 
+struct enhanced_security_service : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::enhanced_security_service";
+  }
+};
+
+struct elliptic_curve : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::elliptic_curve";
+  }
+};
+
+struct envelope : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::envelope";
+  }
+};
+
+struct engine : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::engine";
+  }
+};
+
+struct generic : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::generic";
+  }
+};
+
+struct http : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::http";
+  }
+};
+
 struct io final : category {
   virtual char const* name () const noexcept override final {
     return "aegis::category::io";
