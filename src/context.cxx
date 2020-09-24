@@ -2,6 +2,8 @@
 #include <aegis/x509.hpp>
 #include <aegis/key.hpp>
 
+#include <apex/core/prelude.hpp>
+
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 
@@ -29,6 +31,14 @@ unsigned long context::use (private_key const& key) noexcept {
     return ERR_get_error();
   }
   return 0;
+}
+
+std::chrono::seconds context::timeout () const noexcept {
+  return std::chrono::seconds { SSL_CTX_get_timeout(this->get()) };
+}
+
+void context::timeout (std::chrono::seconds duration) noexcept {
+  apex::ignore = SSL_CTX_set_timeout(this->get(), duration.count());
 }
 
 } /* namespace aegis */

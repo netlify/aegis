@@ -4,6 +4,8 @@
 #include <aegis/memory.hpp>
 #include <aegis/types.hpp>
 
+#include <chrono>
+
 namespace aegis::x509 { struct certificate; } /* namespace aegis::x509 */
 
 namespace aegis {
@@ -21,6 +23,9 @@ struct context : private retain_handle<SSL_CTX> {
   unsigned long add_extra_chain (x509::certificate&&) noexcept;
   unsigned long use (x509::certificate const&) noexcept;
   unsigned long use (private_key const&) noexcept;
+
+  std::chrono::seconds timeout () const noexcept;
+  void timeout (std::chrono::seconds) noexcept;
 
   using resource_type::resource_type;
   using resource_type::operator bool;
