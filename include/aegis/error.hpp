@@ -179,7 +179,33 @@ enum class asn1 {
   wrong_tag = 168,
 };
 
-enum class bignum { };
+enum class bignum {
+  arg2_lt_arg3 = 100,
+  bad_reciprocal = 101,
+  bignum_too_long = 114,
+  bits_too_small = 118,
+  called_with_even_modulus = 102,
+  div_by_zero = 103,
+  encoding_error = 104,
+  expand_on_static_bignum_data = 105,
+  input_not_reduced = 110,
+  invalid_length = 106,
+  invalid_range = 115,
+  invalid_shift = 119,
+  not_a_square = 111,
+  not_initialized = 107,
+  no_inverse = 108,
+  no_solution = 116,
+  no_suitable_digest = 120,
+  private_key_too_large = 117,
+  p_is_not_prime = 112,
+  too_many_iterations = 113,
+  too_many_temporary_variables = 109,
+};
+
+enum class compression { };
+enum class cmp { }; // TODO: is this compare?
+enum class cms { };
 
 enum class io {
   accept = 100,
@@ -223,10 +249,6 @@ enum class io {
   write_to_read_only_bio = 126,
   wsastartup = 122,
 };
-
-enum class compression { };
-enum class cmp { }; // TODO: is this compare?
-enum class cms { };
 
 } /* namespace aegis */
 
