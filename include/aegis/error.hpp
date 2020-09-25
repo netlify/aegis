@@ -1535,4 +1535,159 @@ enum class x509 {
 
 } /* namespace aegis */
 
+/* is_error_code_enum specializations */
+namespace std {
+
+template <>
+struct is_error_code_enum<::aegis::error::async> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::asn1> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::bignum> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::certificate_management_protocol> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::cryptographic_message_syntax> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::certificate_transparency> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::configuration> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::compression> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::crypto> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::diffie_hellman> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::dsa> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::enhanced_security_service> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::elliptic_curve> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::envelope> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::engine> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::http> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::io> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::object> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::ocsp> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::pkcs12> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::pkcs7> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::pem> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::random> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::rsa> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::store> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::ssl> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::ts> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::ui> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::x509v3> :
+  true_type
+{ };
+
+template <>
+struct is_error_code_enum<::aegis::error::x509> :
+  true_type
+{ };
+
+} /* namespace std */
+
 #endif /* AEGIS_ERROR_HPP */
