@@ -1,0 +1,41 @@
+name: Build and Test
+on: push
+jobs:
+  build:
+    name: Build Aegis
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: true
+      matrix:
+        build-type: [Debug, Release, RelWithDebInfo]
+        sanitizer: [ASAN, UBSAN]
+    env:
+      CMAKE_GENERATOR: Ninja
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update Package Index
+        run: sudo apt-get update
+      - name: Install CMake + Ninja
+        run: sudo apt-get install --yes ninja-build cmake
+      - name: clang-tidy-10 workaround
+        run: sudo apt-get remove libllvm10
+      - name: Install Toolchain
+        run: >
+          sudo apt-get install --yes
+          clang-format-10
+          clang-tools-10
+          clang-tidy-10
+          libc++-10-dev
+          clang-10
+          llvm-10
+          lld-10
+      - name: Install Dependencies
+        run: sudo apt-get install --yes libssl-dev
+      - name: Configure Project
+        run: >
+          cmake -B${{github.workspace}}/build -S ${{github.workspace}}
+          -DCMAKE_BUILD_TYPE=${{matrix.build-type}}
+          -DAEGIS_WITH_${{matrix.sanitizer}}=YES
+      - name: Build Project
+        run: cmake --build build
