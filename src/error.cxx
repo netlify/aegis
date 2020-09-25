@@ -128,6 +128,24 @@ struct io final : category {
   }
 };
 
+struct object final : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::object";
+  }
+};
+
+struct ocsp final : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::ocsp";
+  }
+};
+
+struct pkcs12 final : category {
+  virtual char const* name () const noexcept override final {
+    return "aegis::category::pkcs12";
+  }
+};
+
 } /* nameless namespace */
 
 namespace aegis::category {
