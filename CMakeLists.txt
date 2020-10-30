@@ -52,15 +52,13 @@ install(DIRECTORY include/
   FILES_MATCHING
     PATTERN "*.hpp")
 
-if (AEGIS_BUILD_DOCS)
-  set_property(TARGET docs
-    APPEND PROPERTY SPHINX_BUILD_DEFINITIONS
-      "project=Netlify Aegis 🛡"
-      "copyright=Netlify, Inc."
-      html_theme_options.github_user=netlify
-      html_theme_options.github_repo=aegis)
-  set_property(TARGET docs PROPERTY SPHINX_BUILD_COLOR ON)
-endif()
+set_property(TARGET sphinx::aegis PROPERTY SPHINX_GITHUB_USER "netlify")
+set_property(TARGET sphinx::aegis PROPERTY SPHINX_GITHUB_REPO "aegis")
+
+set_property(TARGET sphinx::aegis PROPERTY SPHINX_PROJECT_COPYRIGHT "Netlify, Inc")
+set_property(TARGET sphinx::aegis PROPERTY SPHINX_PROJECT_NAME "Netlify Aegis 🛡")
+
+set_property(TARGET sphinx::aegis PROPERTY SPHINX_CONSOLE_COLOR ON)
 
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   feature_summary(DEFAULT_DESCRIPTION WHAT ALL)

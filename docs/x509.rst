@@ -1,0 +1,42 @@
+X509 Certificates
+=================
+
+One of the primary uses of OpenSSL is interacting with X509 certificates.
+Aegis attempts to make this as easy as possible (with *some* caveats), and
+reduce the need to worry about memory management with regards to X509
+certificate instances.
+
+
+.. namespace:: aegis::x509
+
+
+.. struct:: certificate
+
+   .. type:: pointer = X509*
+
+      A :struct:`certificate` is a wrapper around an :expr:`X509*` pointer.
+      It correctly increments and decrements the lifetime of the underlying
+      pointer.
+
+   .. function:: certificate(io::stream_view const&) noexcept
+
+      A certificate can be constructed from an :struct:`io::stream_view`, as
+      this is one of the primary ways in which a certificate is created in the
+      first place (i.e., from binary data). The given :struct:`io::stream_view`
+      is not required to outlive the :struct:`aegis::certificate`.
+
+   .. function:: stack<GENERAL_NAME> subject_alternative_names () const noexcept
+
+   .. function:: name subject_name () const noexcept
+
+   .. function:: [[nodiscard]] X509* release () const noexcept
+
+   .. function:: X509* get () const noexcept
+
+.. struct:: name
+
+   .. todo:: Fill out more details
+
+.. struct:: entry
+
+   .. todo:: Fill out more details
