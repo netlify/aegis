@@ -1,5 +1,9 @@
 name: Build and Test
-on: push
+on:
+  push:
+    paths-ignore:
+      - docs/**
+      - .github/workflows/docs.yml
 jobs:
   build:
     name: Build Aegis

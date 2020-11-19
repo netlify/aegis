@@ -16,24 +16,9 @@ template <> struct retain_traits<BIO> {
   static void decrement (BIO*) noexcept;
 };
 
-template <> struct default_delete<BIO> {
-  void operator () (BIO*) const noexcept;
-};
-
 } /* namespace aegis */
 
 namespace aegis::io {
-
-struct [[deprecated("use aegis::io::stream_view")]] stream : private unique_handle<BIO> {
-  stream (apex::span<apex::byte>) noexcept;
-  stream (std::string const&) noexcept;
-  stream (std::string_view) noexcept;
-
-  using unique_handle<BIO>::get;
-
-private:
-  stream (void const*, size_t) noexcept;
-};
 
 struct stream_view : private retain_handle<BIO> {
   stream_view (apex::span<apex::byte> const&) noexcept;
