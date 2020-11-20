@@ -212,8 +212,9 @@ struct stack : private unique_handle<typename stack_traits<T>::stack_type, stack
   [[nodiscard]] size_type reserve (size_type n) { return traits_type::reserve(this->get(), n); }
   [[nodiscard]] bool is_sorted () const noexcept;
 
+  /* returns -1 if this->get() == nullptr */
   [[nodiscard]] size_type size () const noexcept { return traits_type::size(this->get()); }
-  [[nodiscard]] bool empty () const noexcept { return this->get() and not this->size(); }
+  [[nodiscard]] bool empty () const noexcept { return this->size() <= 0; }
 };
 
 } /* namespace aegis */
